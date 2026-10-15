@@ -1,0 +1,31 @@
+generated: '2026-10-14'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://docs.treezor.com/guide/api-basics/authentication.html
+sources:
+- https://docs.treezor.com/guide/api-basics/authentication.html
+- https://docs.treezor.com/guide/api-basics/using-treezor-as-oauth-identity-provider.html
+- https://docs.treezor.com/guide/cards/_components/tx-authentication-steps.html
+- https://docs.treezor.com/guide/cards/transactions-authentication.html
+description: Treezor uses OAuth2 with JWT tokens and Mutual TLS as an additional security layer.
+schemes:
+- type: oauth2
+  name: OAuth2
+  evidence: Treezor leverages the OAuth2 framework and JSON Web Token (JWT) which allows for a wide range of authentication flows.
+  flows:
+  - client_credentials
+  - authorization_code
+  token_url: /oauth/token
+  scopes:
+  - read_only
+  - read_write
+  - admin
+  - keys
+  - legal
+  how_to_obtain: Call the /oauth/token endpoint with client_id and client_secret (client_credentials) or exchange an authorization code (authorization_code)
+    to receive a JWT.
+- type: mtls
+  name: Mutual TLS
+  evidence: Treezor also relies on Mutual TLS authentication as an additional security layer.
+  how_to_obtain: Mutual TLS is configured per environment; credentials are provided by Treezor Account Manager.
+docs: https://docs.treezor.com/guide/api-basics/authentication.html

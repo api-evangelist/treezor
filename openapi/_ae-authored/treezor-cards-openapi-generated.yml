@@ -1,0 +1,351 @@
+openapi: 3.1.0
+info:
+  title: Treezor cards API
+  version: '2026-10-14'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-14: 7 operation(s) read from 1 public documentation page(s) (each operation
+    names its page in x-source). This is not the provider''s published contract; Treezor has published no machine-readable contract that the pipeline
+    could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 3
+    documentation: 23
+    pages-with-code: 4
+    pages-read: 9
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-14'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://docs.treezor.com/guide/cards/creation.html
+  x-docs-section: cards
+servers:
+- url: https://your.csv.link
+paths:
+  /[...]:
+    post:
+      operationId: post
+      tags:
+      - API
+      summary: POST /[...]
+      x-source: https://docs.treezor.com/guide/cards/creation.html
+      parameters:
+      - name: X-Amz-Expires
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostResponse2'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl bash curl -X POST '{baseUrl}/core-connect/card/user/bulk/validate'  --header 'Authorization: Bearer {accessToken}'  --header\
+          \ 'Content-Type: multipart/form-data'  --form 'file=@/path/to/your/file.csv' 1 2 3 4 Returns the validation result with a link to download\
+          \ the enriched CSV file containing an errors column. JSON json { \n \"fileStatus\" : \"PARTIAL_OK\" , \n \"totalLines\" : 10 , \n \"\
+          validLines\" :"
+  /cards:
+    post:
+      operationId: post_cards
+      tags:
+      - Cards
+      summary: Create a Card (PCI‑DSS endpoint)
+      x-source: https://docs.treezor.com/guide/cards/creation.html
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostCardsRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostCardsResponse'
+      x-evidence:
+        kind: documentation
+  /cards/{cardid}/cardImage:
+    get:
+      operationId: get_cards_cardid_cardImage
+      tags:
+      - Cards
+      summary: Retrieve a Card Image (PCI‑DSS endpoint)
+      x-source: https://docs.treezor.com/guide/cards/creation.html
+      parameters:
+      - name: cardid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCardsCardidCardimageResponse'
+      x-evidence:
+        kind: documentation
+  /core-connect/card/bulk:
+    get:
+      operationId: get_core_connect_card_bulk
+      tags:
+      - Core Connect
+      summary: Get Bulk Card Creation status
+      x-source: https://docs.treezor.com/guide/cards/creation.html
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCoreConnectCardBulkResponse'
+      x-evidence:
+        kind: documentation
+    post:
+      operationId: post_core_connect_card_bulk
+      tags:
+      - Core Connect
+      summary: Bulk Card Creation
+      x-source: https://docs.treezor.com/guide/cards/creation.html
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostCoreConnectCardBulkRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostCoreConnectCardBulkResponse'
+      x-evidence:
+        kind: documentation
+  /v1/cards/{cardid}:
+    post:
+      operationId: post_v1_cards_cardid
+      tags:
+      - Cards
+      summary: Create a Virtual Card
+      x-source: https://docs.treezor.com/guide/cards/creation.html
+      parameters:
+      - name: cardid
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1CardsCardidRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1CardsCardidResponse'
+      x-evidence:
+        kind: documentation
+        collapsed_from: 2 example path(s) differing only at cardId
+  /v1/cards/{cardid}/{id}:
+    put:
+      operationId: put_v1_cards_cardid_id
+      tags:
+      - Cards
+      summary: Convert a Virtual Card to a Physical Card
+      x-source: https://docs.treezor.com/guide/cards/creation.html
+      parameters:
+      - name: cardid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PutV1CardsCardidIdResponse'
+      x-evidence:
+        kind: documentation
+        collapsed_from: 3 example path(s) differing only at id
+security:
+- bearer: []
+components:
+  schemas:
+    PostResponse2:
+      type: object
+      properties:
+        fileStatus:
+          type: string
+        totalLines:
+          type: integer
+        validLines:
+          type: integer
+        invalidLines:
+          type: integer
+        reportLink:
+          type: string
+    PostCardsRequest:
+      type: object
+      properties:
+        cardPrint:
+          type: string
+        userId:
+          type: string
+        medium:
+          type: string
+        walletId:
+          type: string
+        permsGroup:
+          type: string
+        mccRestrictionGroupId:
+          type: string
+        merchantRestrictionGroupId:
+          type: string
+        countryRestrictionGroupId:
+          type: string
+        limitPaymentDaily:
+          type: string
+        limitAtmDaily:
+          type: string
+        sca:
+          type: string
+      required:
+      - cardPrint
+      - userId
+      - medium
+      - walletId
+      - permsGroup
+    PostCardsResponse:
+      type: object
+      properties:
+        cards:
+          type: array
+          description: Array of created card objects
+    GetCardsCardidCardimageResponse:
+      type: object
+      properties:
+        encryptedCardImage:
+          type: string
+          description: Base64‑encoded encrypted card image
+    GetCoreConnectCardBulkResponse:
+      type: object
+      properties:
+        orderId:
+          type: string
+        status:
+          type: string
+        errors:
+          type: array
+          description: Optional error details
+    PostCoreConnectCardBulkRequest:
+      type: object
+      properties:
+        number:
+          type: string
+        medium:
+          type: string
+        defaultPermsGroup:
+          type: string
+        walletTypeId:
+          type: string
+        createWalletForEach:
+          type: string
+        createUserForEach:
+          type: string
+        cardDeliveryAddress1:
+          type: string
+        cardDeliveryPostCode:
+          type: string
+        cardDeliveryCity:
+          type: string
+        cardDeliveryCountry:
+          type: string
+        anonymous:
+          type: string
+        cardPrint:
+          type: string
+        logoId:
+          type: string
+        packageId:
+          type: string
+      required:
+      - number
+      - medium
+      - defaultPermsGroup
+      - walletTypeId
+      - createWalletForEach
+      - createUserForEach
+      - cardPrint
+    PostCoreConnectCardBulkResponse:
+      type: object
+      properties:
+        orderId:
+          type: string
+        status:
+          type: string
+    PostV1CardsCardidRequest:
+      type: object
+      properties:
+        cardPrint:
+          type: string
+        userId:
+          type: string
+        walletId:
+          type: string
+        permsGroup:
+          type: string
+        mccRestrictionGroupId:
+          type: string
+        merchantRestrictionGroupId:
+          type: string
+        countryRestrictionGroupId:
+          type: string
+        limitPaymentDaily:
+          type: string
+        limitAtmDaily:
+          type: string
+      required:
+      - cardPrint
+      - userId
+      - walletId
+      - permsGroup
+    PostV1CardsCardidResponse:
+      type: object
+      properties:
+        cards:
+          type: array
+          description: Array of created card objects
+    PutV1CardsCardidIdResponse:
+      type: object
+      properties:
+        cards:
+          type: array
+          description: Array of updated card objects with virtualConverted = 1
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+tags:
+- name: API
+- name: Cards
+- name: Core Connect

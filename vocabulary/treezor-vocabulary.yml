@@ -1,0 +1,152 @@
+generated: '2026-10-14'
+method: derived
+generator: derive-vocabulary.py
+source: openapi/_ae-authored/treezor-openapi-generated.yml
+vocabulary:
+  name: Treezor Domain Vocabulary
+  description: 'Terms declared by Treezor''s own API contract: its resource groups, objects and enumerations, with the contract''s definitions.
+    Derived, not authored.'
+  version: '2026-10-14'
+  terms:
+  - term: GetResponse
+    definition: 'Object declared by the contract with fields: id, status, subStatus, passcodeStatus, locked, lockReasons, lockMessage, settingsProfile,
+      mobileWallet, activationCode, creationDate, deletionDate. (10 more)'
+    tags:
+    - Object
+    source: openapi/_ae-authored/treezor-openapi-generated.yml#/components/schemas/GetResponse
+  - term: PostResponse
+    definition: 'Object declared by the contract with fields: queryId, link, expireIn.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/treezor-openapi-generated.yml#/components/schemas/PostResponse
+  - term: PostResponse2
+    definition: 'Object declared by the contract with fields: fileStatus, totalLines, validLines, invalidLines, reportLink.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/treezor-openapi-generated.yml#/components/schemas/PostResponse2
+  - term: PostBeneficiariesRequest
+    definition: 'Object declared by the contract with fields: userId, name, address, iban, bic, usableForSct.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/treezor-openapi-generated.yml#/components/schemas/PostBeneficiariesRequest
+  - term: PostCardsRequest
+    definition: 'Object declared by the contract with fields: cardPrint, userId, medium, walletId, permsGroup, mccRestrictionGroupId, merchantRestrictionGroupId,
+      countryRestrictionGroupId, limitPaymentDaily, limitAtmDaily, sca.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/treezor-openapi-generated.yml#/components/schemas/PostCardsRequest
+  - term: PostCardsResponse
+    definition: 'Object declared by the contract with fields: cards.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/treezor-openapi-generated.yml#/components/schemas/PostCardsResponse
+  - term: GetCardsCardidCardimageResponse
+    definition: 'Object declared by the contract with fields: encryptedCardImage.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/treezor-openapi-generated.yml#/components/schemas/GetCardsCardidCardimageResponse
+  - term: GetCoreConnectCardBulkResponse
+    definition: 'Object declared by the contract with fields: orderId, status, errors.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/treezor-openapi-generated.yml#/components/schemas/GetCoreConnectCardBulkResponse
+  - term: PostCoreConnectCardBulkRequest
+    definition: 'Object declared by the contract with fields: number, medium, defaultPermsGroup, walletTypeId, createWalletForEach, createUserForEach,
+      cardDeliveryAddress1, cardDeliveryPostCode, cardDeliveryCity, cardDeliveryCountry, anonymous, cardPrint. (2 more)'
+    tags:
+    - Object
+    source: openapi/_ae-authored/treezor-openapi-generated.yml#/components/schemas/PostCoreConnectCardBulkRequest
+  - term: PostCoreConnectCardBulkResponse
+    definition: 'Object declared by the contract with fields: orderId, status.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/treezor-openapi-generated.yml#/components/schemas/PostCoreConnectCardBulkResponse
+  - term: PostCoreConnectScaScaoperationsRequest
+    definition: 'Object declared by the contract with fields: dataToSign, actionName, actionDescription, userId.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/treezor-openapi-generated.yml#/components/schemas/PostCoreConnectScaScaoperationsRequest
+  - term: PostCoreConnectScaScaoperationsResponse
+    definition: 'Object declared by the contract with fields: id, dataToSign, actionName, actionDescription, userId, createdDate, status, validatedDate,
+      refusedDate, scaProof.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/treezor-openapi-generated.yml#/components/schemas/PostCoreConnectScaScaoperationsResponse
+  - term: GetCoreConnectScaScaoperationsIdResponse
+    definition: 'Object declared by the contract with fields: id, dataToSign, actionName, actionDescription, createdDate, status, validatedDate,
+      refusedDate, scaProof.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/treezor-openapi-generated.yml#/components/schemas/GetCoreConnectScaScaoperationsIdResponse
+  - term: PutCoreConnectScaScaoperationsIdRequest
+    definition: 'Object declared by the contract with fields: status, scaProof.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/treezor-openapi-generated.yml#/components/schemas/PutCoreConnectScaScaoperationsIdRequest
+  - term: GetCoreConnectScaScawalletsScawalletidResponse
+    definition: 'Object declared by the contract with fields: id, status, subStatus, passcodeStatus, locked, lockReasons, lockMessage, settingsProfile,
+      mobileWallet, activationCode, creationDate, deletionDate. (10 more)'
+    tags:
+    - Object
+    source: openapi/_ae-authored/treezor-openapi-generated.yml#/components/schemas/GetCoreConnectScaScawalletsScawalletidResponse
+  - term: GetCoreConnectScaScaidResponse
+    definition: 'Object declared by the contract with fields: scaOperations.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/treezor-openapi-generated.yml#/components/schemas/GetCoreConnectScaScaidResponse
+  - term: GetCustomizationTemplatesTemplatenameExampleResponse
+    definition: 'Object declared by the contract with fields: template.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/treezor-openapi-generated.yml#/components/schemas/GetCustomizationTemplatesTemplatenameExampleResponse
+  - term: GetRetryExecExecutionidResponse
+    definition: 'Object declared by the contract with fields: executionId, status, lastEventAt.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/treezor-openapi-generated.yml#/components/schemas/GetRetryExecExecutionidResponse
+  - term: PostRetryRetryidRequest
+    definition: 'Object declared by the contract with fields: queryId, delay.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/treezor-openapi-generated.yml#/components/schemas/PostRetryRetryidRequest
+  - term: PostRetryRetryidResponse
+    definition: 'Object declared by the contract with fields: executionId, status.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/treezor-openapi-generated.yml#/components/schemas/PostRetryRetryidResponse
+  - term: PostSimulationScaproofRequest
+    definition: 'Object declared by the contract with fields: scaWalletId, url, body.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/treezor-openapi-generated.yml#/components/schemas/PostSimulationScaproofRequest
+  - term: PostSimulationScaproofResponse
+    definition: 'Object declared by the contract with fields: scaProof.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/treezor-openapi-generated.yml#/components/schemas/PostSimulationScaproofResponse
+  - term: PostV1BeneficiariesRequest
+    definition: 'Object declared by the contract with fields: userId, name, address, iban, bic, usableForSct.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/treezor-openapi-generated.yml#/components/schemas/PostV1BeneficiariesRequest
+  - term: PostV1CardsCardidRequest
+    definition: 'Object declared by the contract with fields: cardPrint, userId, walletId, permsGroup, mccRestrictionGroupId, merchantRestrictionGroupId,
+      countryRestrictionGroupId, limitPaymentDaily, limitAtmDaily.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/treezor-openapi-generated.yml#/components/schemas/PostV1CardsCardidRequest
+  - term: PostV1CardsCardidResponse
+    definition: 'Object declared by the contract with fields: cards.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/treezor-openapi-generated.yml#/components/schemas/PostV1CardsCardidResponse
+  - term: PutV1CardsCardidIdResponse
+    definition: 'Object declared by the contract with fields: cards.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/treezor-openapi-generated.yml#/components/schemas/PutV1CardsCardidIdResponse
+  - term: PutV1UsersUseridRequest
+    definition: 'Object declared by the contract with fields: phone, middleNames.'
+    tags:
+    - Object
+    source: openapi/_ae-authored/treezor-openapi-generated.yml#/components/schemas/PutV1UsersUseridRequest

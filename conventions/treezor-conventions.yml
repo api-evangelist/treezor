@@ -1,0 +1,27 @@
+generated: '2026-10-14'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://docs.treezor.com/guide/api-basics/pagination.html
+sources:
+- https://docs.treezor.com/guide/api-basics/pagination.html
+- https://docs.treezor.com/guide/overview/getting-started.html
+- https://docs.treezor.com/guide/api-basics/authentication.html
+- https://docs.treezor.com/guide/api-basics/using-treezor-as-oauth-identity-provider.html
+idempotency:
+  coverage: none
+  evidence: The documentation does not describe an idempotency key or header for write operations.
+pagination:
+  style: offset and cursor
+  params:
+  - pageNumber (offset pagination)
+  - pageCount (offset pagination)
+  - sortBy (offset pagination)
+  - sortOrder (offset pagination)
+  - cursor (cursor pagination)
+  response_fields:
+  - '"cursor" object with "prev", "current", "next" for cursor pagination'
+  evidence: Treezor supports offset‑based pagination using pageNumber, pageCount, sortBy and sortOrder, and cursor‑based pagination using a cursor
+    query parameter that returns a cursor object with prev/current/next.
+authentication: OAuth2 client‑credentials flow returning a JWT used in the Authorization header as "Bearer {accessToken}"; Mutual TLS is also
+  required for some services.
+docs: https://docs.treezor.com/guide/api-basics/pagination.html

@@ -1,0 +1,352 @@
+{
+  "@context": {
+    "@vocab": "https://treezor.com/schema#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "treezor": "https://treezor.com/schema#",
+    "GetResponse": "treezor:GetResponse",
+    "id": {
+      "@id": "treezor:id",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "treezor:status",
+      "@type": "xsd:string"
+    },
+    "subStatus": {
+      "@id": "treezor:subStatus",
+      "@type": "xsd:string"
+    },
+    "passcodeStatus": {
+      "@id": "treezor:passcodeStatus",
+      "@type": "xsd:string"
+    },
+    "locked": {
+      "@id": "treezor:locked",
+      "@type": "xsd:boolean"
+    },
+    "lockReasons": {
+      "@id": "treezor:lockReasons",
+      "@container": "@list"
+    },
+    "lockMessage": {
+      "@id": "treezor:lockMessage",
+      "@type": "xsd:string"
+    },
+    "settingsProfile": {
+      "@id": "treezor:settingsProfile",
+      "@type": "xsd:string"
+    },
+    "mobileWallet": {
+      "@id": "treezor:mobileWallet"
+    },
+    "activationCode": {
+      "@id": "treezor:activationCode",
+      "@type": "xsd:string"
+    },
+    "creationDate": {
+      "@id": "treezor:creationDate",
+      "@type": "xsd:dateTime"
+    },
+    "deletionDate": {
+      "@id": "treezor:deletionDate",
+      "@type": "xsd:string"
+    },
+    "activationCodeExpiryDate": {
+      "@id": "treezor:activationCodeExpiryDate",
+      "@type": "xsd:dateTime"
+    },
+    "authenticationMethods": {
+      "@id": "treezor:authenticationMethods",
+      "@container": "@list"
+    },
+    "invalidActivationAttempts": {
+      "@id": "treezor:invalidActivationAttempts",
+      "@type": "xsd:string"
+    },
+    "userId": {
+      "@id": "treezor:userId",
+      "@type": "xsd:string"
+    },
+    "scaWalletTag": {
+      "@id": "treezor:scaWalletTag",
+      "@type": "xsd:string"
+    },
+    "clientId": {
+      "@id": "treezor:clientId",
+      "@type": "xsd:string"
+    },
+    "activationDate": {
+      "@id": "treezor:activationDate",
+      "@type": "xsd:string"
+    },
+    "lockDate": {
+      "@id": "treezor:lockDate",
+      "@type": "xsd:string"
+    },
+    "unlockDate": {
+      "@id": "treezor:unlockDate",
+      "@type": "xsd:string"
+    },
+    "resetPinDate": {
+      "@id": "treezor:resetPinDate",
+      "@type": "xsd:string"
+    },
+    "PostResponse": "treezor:PostResponse",
+    "queryId": {
+      "@id": "treezor:queryId",
+      "@type": "xsd:string"
+    },
+    "link": {
+      "@id": "treezor:link",
+      "@type": "xsd:string"
+    },
+    "expireIn": {
+      "@id": "treezor:expireIn",
+      "@type": "xsd:integer"
+    },
+    "PostResponse2": "treezor:PostResponse2",
+    "fileStatus": {
+      "@id": "treezor:fileStatus",
+      "@type": "xsd:string"
+    },
+    "totalLines": {
+      "@id": "treezor:totalLines",
+      "@type": "xsd:integer"
+    },
+    "validLines": {
+      "@id": "treezor:validLines",
+      "@type": "xsd:integer"
+    },
+    "invalidLines": {
+      "@id": "treezor:invalidLines",
+      "@type": "xsd:integer"
+    },
+    "reportLink": {
+      "@id": "treezor:reportLink",
+      "@type": "xsd:string"
+    },
+    "PostBeneficiariesRequest": "treezor:PostBeneficiariesRequest",
+    "name": {
+      "@id": "treezor:name",
+      "@type": "xsd:string"
+    },
+    "address": {
+      "@id": "treezor:address",
+      "@type": "xsd:string"
+    },
+    "iban": {
+      "@id": "treezor:iban",
+      "@type": "xsd:string"
+    },
+    "bic": {
+      "@id": "treezor:bic",
+      "@type": "xsd:string"
+    },
+    "usableForSct": {
+      "@id": "treezor:usableForSct",
+      "@type": "xsd:boolean"
+    },
+    "PostCardsRequest": "treezor:PostCardsRequest",
+    "cardPrint": {
+      "@id": "treezor:cardPrint",
+      "@type": "xsd:string"
+    },
+    "medium": {
+      "@id": "treezor:medium",
+      "@type": "xsd:string"
+    },
+    "walletId": {
+      "@id": "treezor:walletId",
+      "@type": "xsd:string"
+    },
+    "permsGroup": {
+      "@id": "treezor:permsGroup",
+      "@type": "xsd:string"
+    },
+    "mccRestrictionGroupId": {
+      "@id": "treezor:mccRestrictionGroupId",
+      "@type": "xsd:string"
+    },
+    "merchantRestrictionGroupId": {
+      "@id": "treezor:merchantRestrictionGroupId",
+      "@type": "xsd:string"
+    },
+    "countryRestrictionGroupId": {
+      "@id": "treezor:countryRestrictionGroupId",
+      "@type": "xsd:string"
+    },
+    "limitPaymentDaily": {
+      "@id": "treezor:limitPaymentDaily",
+      "@type": "xsd:string"
+    },
+    "limitAtmDaily": {
+      "@id": "treezor:limitAtmDaily",
+      "@type": "xsd:string"
+    },
+    "sca": {
+      "@id": "treezor:sca",
+      "@type": "xsd:string"
+    },
+    "PostCardsResponse": "treezor:PostCardsResponse",
+    "cards": {
+      "@id": "treezor:cards",
+      "@container": "@list"
+    },
+    "GetCardsCardidCardimageResponse": "treezor:GetCardsCardidCardimageResponse",
+    "encryptedCardImage": {
+      "@id": "treezor:encryptedCardImage",
+      "@type": "xsd:string"
+    },
+    "GetCoreConnectCardBulkResponse": "treezor:GetCoreConnectCardBulkResponse",
+    "orderId": {
+      "@id": "treezor:orderId",
+      "@type": "xsd:string"
+    },
+    "errors": {
+      "@id": "treezor:errors",
+      "@container": "@list"
+    },
+    "PostCoreConnectCardBulkRequest": "treezor:PostCoreConnectCardBulkRequest",
+    "number": {
+      "@id": "treezor:number",
+      "@type": "xsd:string"
+    },
+    "defaultPermsGroup": {
+      "@id": "treezor:defaultPermsGroup",
+      "@type": "xsd:string"
+    },
+    "walletTypeId": {
+      "@id": "treezor:walletTypeId",
+      "@type": "xsd:string"
+    },
+    "createWalletForEach": {
+      "@id": "treezor:createWalletForEach",
+      "@type": "xsd:string"
+    },
+    "createUserForEach": {
+      "@id": "treezor:createUserForEach",
+      "@type": "xsd:string"
+    },
+    "cardDeliveryAddress1": {
+      "@id": "treezor:cardDeliveryAddress1",
+      "@type": "xsd:string"
+    },
+    "cardDeliveryPostCode": {
+      "@id": "treezor:cardDeliveryPostCode",
+      "@type": "xsd:string"
+    },
+    "cardDeliveryCity": {
+      "@id": "treezor:cardDeliveryCity",
+      "@type": "xsd:string"
+    },
+    "cardDeliveryCountry": {
+      "@id": "treezor:cardDeliveryCountry",
+      "@type": "xsd:string"
+    },
+    "anonymous": {
+      "@id": "treezor:anonymous",
+      "@type": "xsd:string"
+    },
+    "logoId": {
+      "@id": "treezor:logoId",
+      "@type": "xsd:string"
+    },
+    "packageId": {
+      "@id": "treezor:packageId",
+      "@type": "xsd:string"
+    },
+    "PostCoreConnectCardBulkResponse": "treezor:PostCoreConnectCardBulkResponse",
+    "PostCoreConnectScaScaoperationsRequest": "treezor:PostCoreConnectScaScaoperationsRequest",
+    "dataToSign": {
+      "@id": "treezor:dataToSign"
+    },
+    "actionName": {
+      "@id": "treezor:actionName",
+      "@type": "xsd:string"
+    },
+    "actionDescription": {
+      "@id": "treezor:actionDescription",
+      "@type": "xsd:string"
+    },
+    "PostCoreConnectScaScaoperationsResponse": "treezor:PostCoreConnectScaScaoperationsResponse",
+    "createdDate": {
+      "@id": "treezor:createdDate",
+      "@type": "xsd:string"
+    },
+    "validatedDate": {
+      "@id": "treezor:validatedDate",
+      "@type": "xsd:string"
+    },
+    "refusedDate": {
+      "@id": "treezor:refusedDate",
+      "@type": "xsd:string"
+    },
+    "scaProof": {
+      "@id": "treezor:scaProof",
+      "@type": "xsd:string"
+    },
+    "GetCoreConnectScaScaoperationsIdResponse": "treezor:GetCoreConnectScaScaoperationsIdResponse",
+    "PutCoreConnectScaScaoperationsIdRequest": "treezor:PutCoreConnectScaScaoperationsIdRequest",
+    "GetCoreConnectScaScawalletsScawalletidResponse": "treezor:GetCoreConnectScaScawalletsScawalletidResponse",
+    "GetCoreConnectScaScaidResponse": "treezor:GetCoreConnectScaScaidResponse",
+    "scaOperations": {
+      "@id": "treezor:scaOperations",
+      "@container": "@list"
+    },
+    "GetCustomizationTemplatesTemplatenameExampleResponse": "treezor:GetCustomizationTemplatesTemplatenameExampleResponse",
+    "template": {
+      "@id": "treezor:template",
+      "@type": "xsd:string"
+    },
+    "GetRetryExecExecutionidResponse": "treezor:GetRetryExecExecutionidResponse",
+    "executionId": {
+      "@id": "treezor:executionId",
+      "@type": "xsd:string"
+    },
+    "lastEventAt": {
+      "@id": "treezor:lastEventAt",
+      "@type": "xsd:string"
+    },
+    "PostRetryRetryidRequest": "treezor:PostRetryRetryidRequest",
+    "delay": {
+      "@id": "treezor:delay",
+      "@type": "xsd:integer"
+    },
+    "PostRetryRetryidResponse": "treezor:PostRetryRetryidResponse",
+    "PostSimulationScaproofRequest": "treezor:PostSimulationScaproofRequest",
+    "scaWalletId": {
+      "@id": "treezor:scaWalletId",
+      "@type": "xsd:string"
+    },
+    "url": {
+      "@id": "treezor:url",
+      "@type": "xsd:string"
+    },
+    "body": {
+      "@id": "treezor:body"
+    },
+    "PostSimulationScaproofResponse": "treezor:PostSimulationScaproofResponse",
+    "PostV1BeneficiariesRequest": "treezor:PostV1BeneficiariesRequest",
+    "PostV1CardsCardidRequest": "treezor:PostV1CardsCardidRequest",
+    "PostV1CardsCardidResponse": "treezor:PostV1CardsCardidResponse",
+    "PutV1CardsCardidIdResponse": "treezor:PutV1CardsCardidIdResponse",
+    "PutV1UsersUseridRequest": "treezor:PutV1UsersUseridRequest",
+    "phone": {
+      "@id": "treezor:phone",
+      "@type": "xsd:string"
+    },
+    "middleNames": {
+      "@id": "treezor:middleNames",
+      "@type": "xsd:string"
+    }
+  },
+  "@type": "schema:Dataset",
+  "schema:name": "Treezor API JSON-LD context",
+  "schema:description": "A JSON-LD @context for the objects Treezor's own API contract declares: one class per component schema, one property per declared field, typed from the contract. Derived by script (derive-json-ld.py, 2026-10-14) from openapi/_ae-authored/treezor-openapi-generated.yml.",
+  "dcterms:created": "2026-10-14",
+  "dcterms:source": [
+    "openapi/_ae-authored/treezor-openapi-generated.yml"
+  ]
+}

@@ -1,0 +1,109 @@
+generated: '2026-10-14'
+method: derived
+source: the pre-flight dossier, apis.yml pointers, spec servers, well-known, vendors -- nothing fetched here
+generator: derive-hosts.py
+summary:
+  hosts: 7
+  own: 5
+  other_domain: 2
+  platform: 0
+  roles:
+  - api
+  - docs
+  - other
+  - status
+  - website
+hosts:
+- host: api.treezor.com
+  found_by:
+  - apis[]
+  - contract-discovery
+  types: []
+  serves:
+  - api
+  registrable_domain: treezor.com
+  role: api
+  relation: own
+- host: careers.treezor.com
+  found_by:
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: treezor.com
+  role: other
+  relation: own
+- host: docs.treezor.com
+  found_by:
+  - pointer
+  - apis[]
+  - probed
+  - site-links
+  - docs-index
+  - contract-discovery
+  - well-known
+  types:
+  - GettingStarted
+  serves:
+  - docs
+  registrable_domain: treezor.com
+  role: docs
+  relation: own
+- host: treezor.statuspage.io
+  found_by:
+  - pointer
+  - vendor-detect
+  types:
+  - StatusPage
+  serves:
+  - status-page
+  vendor: statuspage
+  registrable_domain: statuspage.io
+  role: status
+  relation: other-domain
+- host: trust.treezor.com
+  found_by:
+  - probed
+  - site-links
+  - contract-discovery
+  - well-known
+  types: []
+  serves: []
+  registrable_domain: treezor.com
+  role: other
+  relation: own
+- host: www.treezor.com
+  found_by:
+  - pointer
+  - probed
+  - contract-discovery
+  - well-known
+  - vendor-detect
+  types:
+  - Compliance
+  - Website
+  - DeveloperPortal
+  - Documentation
+  - APIReference
+  - Support
+  - Blog
+  - TermsOfService
+  - PrivacyPolicy
+  - Pricing
+  serves:
+  - cdn
+  vendor: cloudfront
+  registrable_domain: treezor.com
+  role: website
+  relation: own
+- host: your.csv.link
+  found_by:
+  - apis[]
+  types: []
+  serves:
+  - api
+  registrable_domain: csv.link
+  role: other
+  relation: other-domain

@@ -1,0 +1,237 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/treezor/main/json-schema/treezor-get-response-schema.json",
+  "title": "GetResponse",
+  "x-generated": "2026-10-14",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/treezor-openapi-generated.yml#/components/schemas/GetResponse",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "subStatus": {
+      "type": "string"
+    },
+    "passcodeStatus": {
+      "type": "string"
+    },
+    "locked": {
+      "type": "boolean"
+    },
+    "lockReasons": {
+      "type": "array",
+      "items": {}
+    },
+    "lockMessage": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "settingsProfile": {
+      "type": "string"
+    },
+    "mobileWallet": {
+      "type": "object",
+      "properties": {
+        "appBuildNumber": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sdkVersion": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "os": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "osVersion": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "brand": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "productModel": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "deviceId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "deviceIdType": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "productFingerprint": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "secretFingerprint": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "root": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "pushMessagingId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "pushMessagingProvider": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "mobileUpdateDate": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "lastEligibilityCheck": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "nfc": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "emulator": {
+          "type": "boolean"
+        },
+        "appleTeamId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "activationCode": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "creationDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "deletionDate": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "activationCodeExpiryDate": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "authenticationMethods": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "usages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "validityDuration": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    },
+    "invalidActivationAttempts": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "userId": {
+      "type": "string"
+    },
+    "scaWalletTag": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "clientId": {
+      "type": "string"
+    },
+    "activationDate": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "lockDate": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "unlockDate": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "resetPinDate": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

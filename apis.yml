@@ -1,23 +1,140 @@
 aid: treezor
+
 name: Treezor
-description: 'Treezor is a company surfaced via the API Evangelist harvest backlog (source: tag-qc) and
-  added to the network as a stub for full-pipeline profiling.'
+
+image: https://www.treezor.com/app/uploads/2022/06/treezor_featured.jpg
+
+description: Treezor provides a comprehensive Banking-as-a-Service platform, offering payment processing, card issuing, SEPA transfers, KYC compliance,
+  and embedded finance solutions for fintechs and regulated institutions across Europe. Their API enables developers to integrate accounts, virtual
+  IBANs, card programs, and real‑time transaction monitoring, supporting both B2B and B2C use cases.
+
 url: https://raw.githubusercontent.com/api-evangelist/treezor/refs/heads/main/apis.yml
+
 x-type: company
+
 x-source: harvest:tag-qc
-x-tier: stub
-x-tier-reason: harvest
+
+x-tier: profiled
+x-tier-reason: enrichment pass 2026-10-14 (modular-v1; was harvest)
+
 specificationVersion: '0.20'
+
 created: '2026-10-14'
+
 modified: '2026-10-14'
+
 tags:
-- Company
-apis: []
+- FinTech
+- Payments
+- Banking-as-a-Service
+- API
+- Europe
+
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+
 common:
+- type: SecurityTxt
+  url: well-known/treezor-treezor-security.txt
+- type: Spectral
+  url: rules/treezor-rules.yml
+- type: JSONLD
+  url: json-ld/treezor-context.jsonld
+- type: Vocabulary
+  url: vocabulary/treezor-vocabulary.yml
+- type: Webhooks
+  url: asyncapi/treezor-webhooks.yml
+- type: DataModel
+  url: data-model/treezor-data-model.yml
+- type: Conventions
+  url: conventions/treezor-conventions.yml
+- type: Compliance
+  url: https://www.treezor.com/
+- type: Authentication
+  url: authentication/treezor-authentication.yml
+- type: Lifecycle
+  url: lifecycle/treezor-lifecycle.yml
+- type: Conformance
+  url: conformance/treezor-conformance.yml
+- type: LLMsTxt
+  url: llms/treezor-llms.txt
+- type: WellKnown
+  url: well-known/treezor-well-known.yml
+- type: Hosts
+  url: hosts/treezor-hosts.yml
+- type: Vendors
+  url: vendors/treezor-vendors.yml
+- type: StatusPage
+  url: https://treezor.statuspage.io/
+- type: GettingStarted
+  url: https://docs.treezor.com/guide/overview/getting-started.html
+- type: TrustCenter
+  url: security/treezor-trust-center.yml
+- type: DomainSecurity
+  url: security/treezor-domain-security.yml
 - type: Website
   url: https://www.treezor.com
+- type: DeveloperPortal
+  url: https://www.treezor.com/developers/
+- type: Documentation
+  url: https://www.treezor.com/api-documentation/
+- type: APIReference
+  url: https://www.treezor.com/api-documentation/
+- type: Support
+  url: https://www.treezor.com/contact-us/
+- type: Blog
+  url: https://www.treezor.com/insights/
+- type: TermsOfService
+  url: https://www.treezor.com/legal/terms/
+- type: PrivacyPolicy
+  url: https://www.treezor.com/legal/privacy/
+- type: Pricing
+  url: https://www.treezor.com/pricing/
+
+apis:
+- name: Treezor API
+  description: Treezor API provides banking-as-a-service endpoints for accounts, virtual IBANs, cards, payments and compliance.
+  humanURL: https://docs.treezor.com/api-reference/api-endpoints.html
+  baseURL: https://api.treezor.com
+  aid: treezor:treezor-api-2
+- aid: treezor:treezor-api
+  name: Treezor API
+  description: 'Treezor API as documented publicly: 26 operations. Contract generated from the documentation by API Evangelist (2026-10-14); not
+
+    the provider''s own document.'
+  humanURL: https://docs.treezor.com/api-reference/postman.html
+  baseURL: https://your.csv.link
+  properties:
+  - type: OpenAPI
+    url: openapi/_ae-authored/treezor-openapi-generated.yml
+    x-provenance: generated
+  - type: JSONSchema
+    url: json-schema/treezor-get-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-get-core-connect-sca-scawallets-scawalletid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-card-bulk-request-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-sca-scaoperations-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-sca-scaoperations-request-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-cards-request-schema.json
+
+x-coverage:
+  state: unreadable
+  reason: js-rendered-docs
+  detail: API reference page renders an interactive OpenAPI UI but the raw spec is not directly accessible.
+  evidence:
+  - url: https://docs.treezor.com/api-reference/api-endpoints.html
+    status: 200
+  checked: '2026-10-14'
+x-enrichment:
+  date: '2026-10-14'
+  status: enriched
+  artifacts_added: 28
+  pass: modular-v1
+  engine: identity=local,contract=local,surfaces=local,docs=local,regulatory=local

@@ -1,0 +1,89 @@
+openapi: 3.1.0
+info:
+  title: Treezor api basics API
+  version: '2026-10-14'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-14: 3 operation(s) read from 2 public documentation page(s) (each operation
+    names its page in x-source). This is not the provider''s published contract; Treezor has published no machine-readable contract that the pipeline
+    could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 3
+    documentation: 23
+    pages-with-code: 4
+    pages-read: 9
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-14'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://docs.treezor.com/guide/api-basics/authentication.html
+  - https://docs.treezor.com/guide/api-basics/templates.html
+  x-docs-section: api-basics
+servers:
+- url: https://your.csv.link
+paths:
+  /customization/templates/{templatename}/example:
+    get:
+      operationId: get_customization_templates_templatename_example
+      tags:
+      - Customization
+      summary: Testing a template (deprecated) – returns a populated version of your template.
+      x-source: https://docs.treezor.com/guide/api-basics/templates.html
+      parameters:
+      - name: templatename
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCustomizationTemplatesTemplatenameExampleResponse'
+      x-evidence:
+        kind: documentation
+  /documents:
+    get:
+      operationId: get_documents
+      tags:
+      - Documents
+      summary: Authentication
+      x-source: https://docs.treezor.com/guide/api-basics/authentication.html
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /wallets:
+    get:
+      operationId: get_wallets
+      tags:
+      - Wallets
+      summary: Authentication
+      x-source: https://docs.treezor.com/guide/api-basics/authentication.html
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+security:
+- bearer: []
+components:
+  schemas:
+    GetCustomizationTemplatesTemplatenameExampleResponse:
+      type: object
+      properties:
+        template:
+          type: string
+          description: Base64‑encoded populated version of the template.
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+tags:
+- name: Customization
+- name: Documents
+- name: Wallets

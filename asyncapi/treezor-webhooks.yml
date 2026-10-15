@@ -1,0 +1,75 @@
+generated: '2026-10-14'
+method: searched
+generator: extract-docs-artifacts.py (local)
+source: https://docs.treezor.com/api-reference/webhook-endpoints.html
+sources:
+- https://docs.treezor.com/api-reference/webhook-endpoints.html
+- https://docs.treezor.com/guide/dashboard/webhooks.html
+- https://docs.treezor.com/guide/webhooks/events-descriptions.html
+- https://docs.treezor.com/guide/webhooks/integrity-checks.html
+description: Treezor webhooks deliver event notifications to a configured URL.
+events:
+- event: authorization.create
+  description: A card topup authorization was created.
+- event: authorization.update
+  description: A card topup authorization was updated.
+- event: authorization.cancel
+  description: A card topup authorization was canceled.
+- event: balance.update
+  description: A Wallet Balance has changed.
+- event: beneficiary.create
+  description: A Beneficiary has been created.
+- event: beneficiary.update
+  description: A Beneficiary has been modified.
+- event: internationalBeneficiary.create
+  description: An International Beneficiary has been created.
+- event: internationalBeneficiary.cancel
+  description: An International Beneficiary has been deleted.
+- event: card3DSv2Authentication.create
+  description: A cardholder must be identified with 3DS authentication.
+- event: card3DSv2Authentication.update
+  description: Indicates the final result of cardholder 3DS authentication.
+- event: card.requestphysical
+  description: A Physical Card has been requested.
+- event: card.createvirtual
+  description: A Virtual Card has been created.
+- event: card.convertvirtual
+  description: A Virtual Card has been converted to a physical one.
+- event: card.expeditionTracking
+  description: The manufacturer mailed the card.
+- event: card.changepin
+  description: A Card PIN has been changed.
+- event: card.activate
+  description: A Card has been activated.
+- event: card.register3DS
+  description: A Card has been register for 3DS.
+- event: card.expiryAlert
+  description: A Card expires the next month.
+- event: card.renew
+  description: A Card has been renewed (the previous one has expired).
+- event: card.regenerate
+  description: A Card Image has been regenerated.
+- event: card.update
+  description: A Card mccRestristionGroupId , merchantRestrictionGroupId and countryRestrictionGroupId have been updated.
+- event: card.limits
+  description: A Card limits have been updated.
+- event: card.options
+  description: A Card options have been updated.
+- event: card.assignwallet
+  description: A Card has been assigned to a new wallet.
+- event: card.setpin
+  description: A Card PIN has been set.
+- event: card.unblockpin
+  description: A Card PIN has been unblocked.
+- event: card.unblockcvc2
+  description: A Card CVC has been unblocked.
+- event: cardBulkUpdate.create
+  description: A Card Bulk Update has been created.
+- event: cardBulkUpdate.update
+  description: A Card Bulk Update has been updated (e.g., processing complete).
+delivery:
+  signature: object_payload_signature header containing HMAC‑SHA256 base64 signature
+  content_type: application/json
+note: Treezor requires verification of the payload integrity using the provided webhook_secret and the object_payload_signature; no additional
+  authentication header is described.
+docs: https://docs.treezor.com/api-reference/webhook-endpoints.html

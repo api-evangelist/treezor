@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/treezor/main/json-schema/treezor-post-cards-request-schema.json",
+  "title": "PostCardsRequest",
+  "x-generated": "2026-10-14",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/treezor-openapi-generated.yml#/components/schemas/PostCardsRequest",
+  "type": "object",
+  "properties": {
+    "cardPrint": {
+      "type": "string"
+    },
+    "userId": {
+      "type": "string"
+    },
+    "medium": {
+      "type": "string"
+    },
+    "walletId": {
+      "type": "string"
+    },
+    "permsGroup": {
+      "type": "string"
+    },
+    "mccRestrictionGroupId": {
+      "type": "string"
+    },
+    "merchantRestrictionGroupId": {
+      "type": "string"
+    },
+    "countryRestrictionGroupId": {
+      "type": "string"
+    },
+    "limitPaymentDaily": {
+      "type": "string"
+    },
+    "limitAtmDaily": {
+      "type": "string"
+    },
+    "sca": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "cardPrint",
+    "userId",
+    "medium",
+    "walletId",
+    "permsGroup"
+  ]
+}

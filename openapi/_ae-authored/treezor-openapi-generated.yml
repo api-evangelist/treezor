@@ -1,0 +1,1198 @@
+openapi: 3.1.0
+info:
+  title: Treezor API
+  version: '2026-10-14'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-14: 26 operation(s) read from 9 public documentation page(s) (each operation
+    names its page in x-source). This is not the provider''s published contract; Treezor has published no machine-readable contract that the pipeline
+    could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 3
+    documentation: 23
+    pages-with-code: 4
+    pages-read: 9
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-14'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://docs.treezor.com/api-reference/postman.html
+  - https://docs.treezor.com/guide/strong-customer-authentication/securing-endpoints.html
+  - https://docs.treezor.com/guide/webhooks/retry.html
+  - https://docs.treezor.com/guide/api-basics/templates.html
+  - https://docs.treezor.com/guide/api-basics/authentication.html
+  - https://docs.treezor.com/guide/strong-customer-authentication/enrolled-devices.html
+  - https://docs.treezor.com/guide/strong-customer-authentication/cross-device.html
+  - https://docs.treezor.com/guide/strong-customer-authentication/faking-operations.html
+  - https://docs.treezor.com/guide/cards/creation.html
+servers:
+- url: https://your.csv.link
+paths:
+  /:
+    get:
+      operationId: get
+      tags:
+      - Api
+      summary: GET /
+      x-source: https://docs.treezor.com/guide/strong-customer-authentication/enrolled-devices.html
+      responses:
+        '200':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl bash curl -X GET '{baseUrl}/core-connect/sca/scawallets/{scaWalletId}'  --header 'Authorization: Bearer {accessToken}'\
+          \ 1 2 Answers with a 200 HTTP Status Code and returns the SCA Wallets object. JSON json { \n \"id\" : \"b72c48e91af6543db755cf24gf2d31e1\"\
+          \ , \n \"status\" : \"CREATED\" , \n \"subStatus\" : \"CREATED_READY\" , \n \"passcodeStatus\" : \"NOT_SET\" , \n \"locked\" : false\
+          \ , \n \"lockReasons\" : [], \n \"lock"
+    post:
+      operationId: post
+      tags:
+      - Api
+      summary: POST /
+      x-source: https://docs.treezor.com/guide/webhooks/retry.html
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostResponse'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl bash curl -X POST '{webhooksBaseUrl}/retry/query'  --header 'authorization: Bearer {accessToken}'  --header 'Content-Type:\
+          \ application/json'  -d '{payload}' 1 2 3 4 Here is an example of {payload} . JSON json { \n \"startAt\" : \"2025-06-10T12:10:00+02:00\"\
+          \ , \n \"endAt\" : \"2025-07-08T00:00:00+02:00\" , \n \"webhook\" : \"merchantIdGroup.create\" \n } 1 2 3 4 5 Returns the following\
+          \ object: JSON json { \n \""
+  /[...]:
+    post:
+      operationId: post
+      tags:
+      - API
+      summary: POST /[...]
+      x-source: https://docs.treezor.com/guide/cards/creation.html
+      parameters:
+      - name: X-Amz-Expires
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostResponse2'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl bash curl -X POST '{baseUrl}/core-connect/card/user/bulk/validate'  --header 'Authorization: Bearer {accessToken}'  --header\
+          \ 'Content-Type: multipart/form-data'  --form 'file=@/path/to/your/file.csv' 1 2 3 4 Returns the validation result with a link to download\
+          \ the enriched CSV file containing an errors column. JSON json { \n \"fileStatus\" : \"PARTIAL_OK\" , \n \"totalLines\" : 10 , \n \"\
+          validLines\" :"
+  /beneficiaries:
+    post:
+      operationId: post_beneficiaries
+      tags:
+      - Beneficiaries
+      summary: Create a beneficiary (example of an endpoint that requires an SCA proof)
+      x-source: https://docs.treezor.com/guide/strong-customer-authentication/cross-device.html
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostBeneficiariesRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /cards:
+    post:
+      operationId: post_cards
+      tags:
+      - Cards
+      summary: Create a Card (PCI‑DSS endpoint)
+      x-source: https://docs.treezor.com/guide/cards/creation.html
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostCardsRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostCardsResponse'
+      x-evidence:
+        kind: documentation
+  /cards/{cardid}/cardImage:
+    get:
+      operationId: get_cards_cardid_cardImage
+      tags:
+      - Cards
+      summary: Retrieve a Card Image (PCI‑DSS endpoint)
+      x-source: https://docs.treezor.com/guide/cards/creation.html
+      parameters:
+      - name: cardid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCardsCardidCardimageResponse'
+      x-evidence:
+        kind: documentation
+  /core-connect/card/bulk:
+    get:
+      operationId: get_core_connect_card_bulk
+      tags:
+      - Core Connect
+      summary: Get Bulk Card Creation status
+      x-source: https://docs.treezor.com/guide/cards/creation.html
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCoreConnectCardBulkResponse'
+      x-evidence:
+        kind: documentation
+    post:
+      operationId: post_core_connect_card_bulk
+      tags:
+      - Core Connect
+      summary: Bulk Card Creation
+      x-source: https://docs.treezor.com/guide/cards/creation.html
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostCoreConnectCardBulkRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostCoreConnectCardBulkResponse'
+      x-evidence:
+        kind: documentation
+  /core-connect/sca/scaOperations:
+    post:
+      operationId: post_core_connect_sca_scaOperations
+      tags:
+      - Core Connect
+      summary: Queue an operation that requires SCA signature
+      x-source: https://docs.treezor.com/guide/strong-customer-authentication/cross-device.html
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostCoreConnectScaScaoperationsRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostCoreConnectScaScaoperationsResponse'
+      x-evidence:
+        kind: documentation
+  /core-connect/sca/scaOperations/{id}:
+    get:
+      operationId: get_core_connect_sca_scaOperations_id
+      tags:
+      - Core Connect
+      summary: Retrieve a specific operation pending SCA signature
+      x-source: https://docs.treezor.com/guide/strong-customer-authentication/cross-device.html
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCoreConnectScaScaoperationsIdResponse'
+      x-evidence:
+        kind: documentation
+    put:
+      operationId: put_core_connect_sca_scaOperations_id
+      tags:
+      - Core Connect
+      summary: Update a pending operation with the appropriate signature (SCA proof)
+      x-source: https://docs.treezor.com/guide/strong-customer-authentication/cross-device.html
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PutCoreConnectScaScaoperationsIdRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /core-connect/sca/scawallets/{scawalletid}:
+    get:
+      operationId: get_core_connect_sca_scawallets_scawalletid
+      tags:
+      - Core Connect
+      summary: Retrieve an SCA Wallet
+      x-source: https://docs.treezor.com/guide/strong-customer-authentication/enrolled-devices.html
+      parameters:
+      - name: scawalletid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: Authorization
+        in: header
+        required: true
+        schema:
+          type: string
+        description: Bearer {accessToken}
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCoreConnectScaScawalletsScawalletidResponse'
+      x-evidence:
+        kind: documentation
+  /core-connect/sca/{scaid}:
+    get:
+      operationId: get_core_connect_sca_scaid
+      tags:
+      - Core Connect
+      summary: Retrieve a list of all operations pending SCA signature
+      x-source: https://docs.treezor.com/guide/strong-customer-authentication/cross-device.html
+      parameters:
+      - name: scaid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCoreConnectScaScaidResponse'
+      x-evidence:
+        kind: documentation
+        collapsed_from: 2 example path(s) differing only at scaId
+  /customization/templates/{templatename}/example:
+    get:
+      operationId: get_customization_templates_templatename_example
+      tags:
+      - Customization
+      summary: Testing a template (deprecated) – returns a populated version of your template.
+      x-source: https://docs.treezor.com/guide/api-basics/templates.html
+      parameters:
+      - name: templatename
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCustomizationTemplatesTemplatenameExampleResponse'
+      x-evidence:
+        kind: documentation
+  /documents:
+    get:
+      operationId: get_documents
+      tags:
+      - Documents
+      summary: Authentication
+      x-source: https://docs.treezor.com/guide/api-basics/authentication.html
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /oauth/token:
+    post:
+      operationId: post_oauth_token
+      tags:
+      - Oauth
+      summary: Authentication
+      x-source: https://docs.treezor.com/api-reference/postman.html
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /retry/exec/{executionid}:
+    get:
+      operationId: get_retry_exec_executionid
+      tags:
+      - Retry
+      summary: Retrieve the execution status
+      x-source: https://docs.treezor.com/guide/webhooks/retry.html
+      parameters:
+      - name: executionid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetRetryExecExecutionidResponse'
+      x-evidence:
+        kind: documentation
+  /retry/{retryid}:
+    post:
+      operationId: post_retry_retryid
+      tags:
+      - Retry
+      summary: Resend events batch
+      x-source: https://docs.treezor.com/guide/webhooks/retry.html
+      parameters:
+      - name: retryid
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostRetryRetryidRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostRetryRetryidResponse'
+      x-evidence:
+        kind: documentation
+        collapsed_from: 2 example path(s) differing only at retryId
+  /simulation/scaProof:
+    post:
+      operationId: post_simulation_scaProof
+      tags:
+      - Simulation
+      summary: Simulating SCA proof
+      x-source: https://docs.treezor.com/guide/strong-customer-authentication/faking-operations.html
+      parameters:
+      - name: scaWalletId
+        in: query
+        required: true
+        schema:
+          type: string
+        description: The unique identifier of the SCA Wallet from which the scaProof is to be created.
+      - name: url
+        in: query
+        required: false
+        schema:
+          type: string
+        description: The URL of the endpoint for which the sensitive action is to be secured with strong customer authentication.
+      - name: body
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Data to sign in the SCA proof body.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostSimulationScaproofRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostSimulationScaproofResponse'
+      x-evidence:
+        kind: documentation
+  /v1/beneficiaries:
+    post:
+      operationId: post_v1_beneficiaries
+      tags:
+      - Beneficiaries
+      summary: POST /v1/beneficiaries example
+      x-source: https://docs.treezor.com/guide/strong-customer-authentication/securing-endpoints.html
+      parameters:
+      - name: accessTag
+        in: query
+        required: false
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1BeneficiariesRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /v1/cardimages:
+    get:
+      operationId: get_v1_cardimages
+      tags:
+      - Cardimages
+      summary: GET /v1/cardimages example
+      x-source: https://docs.treezor.com/guide/strong-customer-authentication/securing-endpoints.html
+      parameters:
+      - name: cardId
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: encryptionMethod
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /v1/cards/{cardid}:
+    post:
+      operationId: post_v1_cards_cardid
+      tags:
+      - Cards
+      summary: Create a Virtual Card
+      x-source: https://docs.treezor.com/guide/cards/creation.html
+      parameters:
+      - name: cardid
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1CardsCardidRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1CardsCardidResponse'
+      x-evidence:
+        kind: documentation
+        collapsed_from: 2 example path(s) differing only at cardId
+  /v1/cards/{cardid}/{id}:
+    put:
+      operationId: put_v1_cards_cardid_id
+      tags:
+      - Cards
+      summary: Convert a Virtual Card to a Physical Card
+      x-source: https://docs.treezor.com/guide/cards/creation.html
+      parameters:
+      - name: cardid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PutV1CardsCardidIdResponse'
+      x-evidence:
+        kind: documentation
+        collapsed_from: 3 example path(s) differing only at id
+  /v1/cards/{id}/Activate:
+    put:
+      operationId: put_v1_cards_id_Activate
+      tags:
+      - Cards
+      summary: PUT /v1/cards/{id}/Activate example
+      x-source: https://docs.treezor.com/guide/strong-customer-authentication/securing-endpoints.html
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: accessTag
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /v1/users/{userid}:
+    put:
+      operationId: put_v1_users_userid
+      tags:
+      - Users
+      summary: PUT /v1/users/{userId} example
+      x-source: https://docs.treezor.com/guide/strong-customer-authentication/securing-endpoints.html
+      parameters:
+      - name: userid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: accessTag
+        in: query
+        required: false
+        schema:
+          type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PutV1UsersUseridRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+  /wallets:
+    get:
+      operationId: get_wallets
+      tags:
+      - Wallets
+      summary: Authentication
+      x-source: https://docs.treezor.com/guide/api-basics/authentication.html
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+components:
+  schemas:
+    GetResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        status:
+          type: string
+        subStatus:
+          type: string
+        passcodeStatus:
+          type: string
+        locked:
+          type: boolean
+        lockReasons:
+          type: array
+          items: {}
+        lockMessage:
+          type:
+          - string
+          - 'null'
+        settingsProfile:
+          type: string
+        mobileWallet:
+          type: object
+          properties:
+            appBuildNumber:
+              type:
+              - string
+              - 'null'
+            sdkVersion:
+              type:
+              - string
+              - 'null'
+            os:
+              type:
+              - string
+              - 'null'
+            osVersion:
+              type:
+              - string
+              - 'null'
+            brand:
+              type:
+              - string
+              - 'null'
+            productModel:
+              type:
+              - string
+              - 'null'
+            deviceId:
+              type:
+              - string
+              - 'null'
+            deviceIdType:
+              type:
+              - string
+              - 'null'
+            productFingerprint:
+              type:
+              - string
+              - 'null'
+            secretFingerprint:
+              type:
+              - string
+              - 'null'
+            root:
+              type:
+              - string
+              - 'null'
+            pushMessagingId:
+              type:
+              - string
+              - 'null'
+            pushMessagingProvider:
+              type:
+              - string
+              - 'null'
+            mobileUpdateDate:
+              type:
+              - string
+              - 'null'
+            lastEligibilityCheck:
+              type:
+              - string
+              - 'null'
+            nfc:
+              type:
+              - string
+              - 'null'
+            emulator:
+              type: boolean
+            appleTeamId:
+              type:
+              - string
+              - 'null'
+        activationCode:
+          type:
+          - string
+          - 'null'
+        creationDate:
+          type: string
+          format: date-time
+        deletionDate:
+          type:
+          - string
+          - 'null'
+        activationCodeExpiryDate:
+          type: string
+          format: date-time
+        authenticationMethods:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              usages:
+                type: array
+                items:
+                  type: string
+              parameters:
+                type: object
+                properties:
+                  validityDuration:
+                    type: integer
+        invalidActivationAttempts:
+          type:
+          - string
+          - 'null'
+        userId:
+          type: string
+        scaWalletTag:
+          type:
+          - string
+          - 'null'
+        clientId:
+          type: string
+        activationDate:
+          type:
+          - string
+          - 'null'
+        lockDate:
+          type:
+          - string
+          - 'null'
+        unlockDate:
+          type:
+          - string
+          - 'null'
+        resetPinDate:
+          type:
+          - string
+          - 'null'
+    PostResponse:
+      type: object
+      properties:
+        queryId:
+          type: string
+        link:
+          type: string
+        expireIn:
+          type: integer
+    PostResponse2:
+      type: object
+      properties:
+        fileStatus:
+          type: string
+        totalLines:
+          type: integer
+        validLines:
+          type: integer
+        invalidLines:
+          type: integer
+        reportLink:
+          type: string
+    PostBeneficiariesRequest:
+      type: object
+      properties:
+        userId:
+          type: string
+        name:
+          type: string
+        address:
+          type: string
+        iban:
+          type: string
+        bic:
+          type: string
+        usableForSct:
+          type: boolean
+      required:
+      - userId
+      - name
+      - address
+      - iban
+      - bic
+      - usableForSct
+    PostCardsRequest:
+      type: object
+      properties:
+        cardPrint:
+          type: string
+        userId:
+          type: string
+        medium:
+          type: string
+        walletId:
+          type: string
+        permsGroup:
+          type: string
+        mccRestrictionGroupId:
+          type: string
+        merchantRestrictionGroupId:
+          type: string
+        countryRestrictionGroupId:
+          type: string
+        limitPaymentDaily:
+          type: string
+        limitAtmDaily:
+          type: string
+        sca:
+          type: string
+      required:
+      - cardPrint
+      - userId
+      - medium
+      - walletId
+      - permsGroup
+    PostCardsResponse:
+      type: object
+      properties:
+        cards:
+          type: array
+          description: Array of created card objects
+    GetCardsCardidCardimageResponse:
+      type: object
+      properties:
+        encryptedCardImage:
+          type: string
+          description: Base64‑encoded encrypted card image
+    GetCoreConnectCardBulkResponse:
+      type: object
+      properties:
+        orderId:
+          type: string
+        status:
+          type: string
+        errors:
+          type: array
+          description: Optional error details
+    PostCoreConnectCardBulkRequest:
+      type: object
+      properties:
+        number:
+          type: string
+        medium:
+          type: string
+        defaultPermsGroup:
+          type: string
+        walletTypeId:
+          type: string
+        createWalletForEach:
+          type: string
+        createUserForEach:
+          type: string
+        cardDeliveryAddress1:
+          type: string
+        cardDeliveryPostCode:
+          type: string
+        cardDeliveryCity:
+          type: string
+        cardDeliveryCountry:
+          type: string
+        anonymous:
+          type: string
+        cardPrint:
+          type: string
+        logoId:
+          type: string
+        packageId:
+          type: string
+      required:
+      - number
+      - medium
+      - defaultPermsGroup
+      - walletTypeId
+      - createWalletForEach
+      - createUserForEach
+      - cardPrint
+    PostCoreConnectCardBulkResponse:
+      type: object
+      properties:
+        orderId:
+          type: string
+        status:
+          type: string
+    PostCoreConnectScaScaoperationsRequest:
+      type: object
+      properties:
+        dataToSign:
+          type: object
+          description: The expected data to be signed for the desired endpoint and action.
+        actionName:
+          type: string
+          description: Must be one of the allowed actions.
+        actionDescription:
+          type: string
+          description: Describes the action to help the User understand what they are validating.
+        userId:
+          type: string
+          description: The User id that must sign the operation.
+      required:
+      - dataToSign
+      - actionName
+      - actionDescription
+      - userId
+    PostCoreConnectScaScaoperationsResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: UUID of the created SCA operation.
+        dataToSign:
+          type: object
+          description: Echo of the data to sign.
+        actionName:
+          type: string
+        actionDescription:
+          type: string
+        userId:
+          type: string
+        createdDate:
+          type: string
+          description: Date‑time with timezone, RFC 3339.
+        status:
+          type: string
+          description: Initial status, e.g. PENDING.
+        validatedDate:
+          type: string
+          description: Nullable.
+        refusedDate:
+          type: string
+          description: Nullable.
+        scaProof:
+          type: string
+          description: Null until validated.
+    GetCoreConnectScaScaoperationsIdResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        dataToSign:
+          type: object
+        actionName:
+          type: string
+        actionDescription:
+          type: string
+        createdDate:
+          type: string
+        status:
+          type: string
+          description: PENDING|REFUSED|VALIDATED
+        validatedDate:
+          type: string
+          description: Nullable.
+        refusedDate:
+          type: string
+          description: Nullable.
+        scaProof:
+          type: string
+    PutCoreConnectScaScaoperationsIdRequest:
+      type: object
+      properties:
+        status:
+          type: string
+          description: REFUSED or VALIDATED.
+        scaProof:
+          type: string
+          description: The SCA proof, mandatory only if status=VALIDATED.
+      required:
+      - status
+    GetCoreConnectScaScawalletsScawalletidResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        status:
+          type: string
+        subStatus:
+          type: string
+        passcodeStatus:
+          type: string
+        locked:
+          type: boolean
+        lockReasons:
+          type: array
+        lockMessage:
+          type: string
+        settingsProfile:
+          type: string
+        mobileWallet:
+          type: object
+        activationCode:
+          type: string
+        creationDate:
+          type: string
+        deletionDate:
+          type: string
+        activationCodeExpiryDate:
+          type: string
+        authenticationMethods:
+          type: array
+        invalidActivationAttempts:
+          type: string
+        userId:
+          type: string
+        scaWalletTag:
+          type: string
+        clientId:
+          type: string
+        activationDate:
+          type: string
+        lockDate:
+          type: string
+        unlockDate:
+          type: string
+        resetPinDate:
+          type: string
+    GetCoreConnectScaScaidResponse:
+      type: object
+      properties:
+        scaOperations:
+          type: array
+          description: List of SCA operation objects.
+    GetCustomizationTemplatesTemplatenameExampleResponse:
+      type: object
+      properties:
+        template:
+          type: string
+          description: Base64‑encoded populated version of the template.
+    GetRetryExecExecutionidResponse:
+      type: object
+      properties:
+        executionId:
+          type: string
+          description: Identifier of the execution batch.
+        status:
+          type: string
+          description: Status valued to either IN_PROGRESS or DONE.
+        lastEventAt:
+          type: string
+          description: Timestamp of the last event processed.
+    PostRetryRetryidRequest:
+      type: object
+      properties:
+        queryId:
+          type: string
+          description: The unique identifier of the query obtained in the first step.
+        delay:
+          type: integer
+          description: The time between each webhook retry attempts in seconds, max 3600.
+      required:
+      - queryId
+    PostRetryRetryidResponse:
+      type: object
+      properties:
+        executionId:
+          type: string
+          description: Identifier of the execution batch.
+        status:
+          type: string
+          description: Current status of the execution (e.g., IN_PROGRESS).
+    PostSimulationScaproofRequest:
+      type: object
+      properties:
+        scaWalletId:
+          type: string
+        url:
+          type: string
+        body:
+          type: object
+      required:
+      - scaWalletId
+    PostSimulationScaproofResponse:
+      type: object
+      properties:
+        scaProof:
+          type: string
+    PostV1BeneficiariesRequest:
+      type: object
+      properties:
+        userId:
+          type: string
+        name:
+          type: string
+        address:
+          type: string
+        iban:
+          type: string
+        bic:
+          type: string
+        usableForSct:
+          type: boolean
+      required:
+      - userId
+      - name
+      - iban
+      - bic
+      - usableForSct
+    PostV1CardsCardidRequest:
+      type: object
+      properties:
+        cardPrint:
+          type: string
+        userId:
+          type: string
+        walletId:
+          type: string
+        permsGroup:
+          type: string
+        mccRestrictionGroupId:
+          type: string
+        merchantRestrictionGroupId:
+          type: string
+        countryRestrictionGroupId:
+          type: string
+        limitPaymentDaily:
+          type: string
+        limitAtmDaily:
+          type: string
+      required:
+      - cardPrint
+      - userId
+      - walletId
+      - permsGroup
+    PostV1CardsCardidResponse:
+      type: object
+      properties:
+        cards:
+          type: array
+          description: Array of created card objects
+    PutV1CardsCardidIdResponse:
+      type: object
+      properties:
+        cards:
+          type: array
+          description: Array of updated card objects with virtualConverted = 1
+    PutV1UsersUseridRequest:
+      type: object
+      properties:
+        phone:
+          type: string
+        middleNames:
+          type: string
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+security:
+- bearer: []
+tags:
+- name: API
+- name: Api
+- name: Beneficiaries
+- name: Cardimages
+- name: Cards
+- name: Core Connect
+- name: Customization
+- name: Documents
+- name: Oauth
+- name: Retry
+- name: Simulation
+- name: Users
+- name: Wallets

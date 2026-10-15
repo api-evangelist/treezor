@@ -1,0 +1,139 @@
+generated: '2026-10-14'
+method: derived
+generator: derive-mcp-candidate.py
+source:
+- openapi/_ae-authored/treezor-openapi-generated.yml
+status: candidate
+deployment:
+  mode: none
+  auth: unknown
+  verified: probed
+note: No MCP server was found. The pre-flight posted tools/list to /mcp on api.treezor.com, www.treezor.com, careers.treezor.com, docs.treezor.com;
+  verdict absent. Candidate tools below are derived from the 25 operation(s) in the provider's own OpenAPI (25 listed); they describe what a server
+  WOULD expose, not one that exists.
+tools:
+- name: get
+  operationId: get
+  method: GET
+  path: /
+  description: GET /
+- name: post
+  operationId: post
+  method: POST
+  path: /
+  description: POST /
+- name: post_beneficiaries
+  operationId: post_beneficiaries
+  method: POST
+  path: /beneficiaries
+  description: Create a beneficiary (example of an endpoint that requires an SCA proof)
+- name: post_cards
+  operationId: post_cards
+  method: POST
+  path: /cards
+  description: Create a Card (PCI‑DSS endpoint)
+- name: get_cards_cardid_card_image
+  operationId: get_cards_cardid_cardImage
+  method: GET
+  path: /cards/{cardid}/cardImage
+  description: Retrieve a Card Image (PCI‑DSS endpoint)
+- name: get_core_connect_card_bulk
+  operationId: get_core_connect_card_bulk
+  method: GET
+  path: /core-connect/card/bulk
+  description: Get Bulk Card Creation status
+- name: post_core_connect_card_bulk
+  operationId: post_core_connect_card_bulk
+  method: POST
+  path: /core-connect/card/bulk
+  description: Bulk Card Creation
+- name: post_core_connect_sca_sca_operations
+  operationId: post_core_connect_sca_scaOperations
+  method: POST
+  path: /core-connect/sca/scaOperations
+  description: Queue an operation that requires SCA signature
+- name: get_core_connect_sca_sca_operations_id
+  operationId: get_core_connect_sca_scaOperations_id
+  method: GET
+  path: /core-connect/sca/scaOperations/{id}
+  description: Retrieve a specific operation pending SCA signature
+- name: put_core_connect_sca_sca_operations_id
+  operationId: put_core_connect_sca_scaOperations_id
+  method: PUT
+  path: /core-connect/sca/scaOperations/{id}
+  description: Update a pending operation with the appropriate signature (SCA proof)
+- name: get_core_connect_sca_scawallets_scawalletid
+  operationId: get_core_connect_sca_scawallets_scawalletid
+  method: GET
+  path: /core-connect/sca/scawallets/{scawalletid}
+  description: Retrieve an SCA Wallet
+- name: get_core_connect_sca_scaid
+  operationId: get_core_connect_sca_scaid
+  method: GET
+  path: /core-connect/sca/{scaid}
+  description: Retrieve a list of all operations pending SCA signature
+- name: get_customization_templates_templatename_example
+  operationId: get_customization_templates_templatename_example
+  method: GET
+  path: /customization/templates/{templatename}/example
+  description: Testing a template (deprecated) – returns a populated version of your template.
+- name: get_documents
+  operationId: get_documents
+  method: GET
+  path: /documents
+  description: Authentication
+- name: post_oauth_token
+  operationId: post_oauth_token
+  method: POST
+  path: /oauth/token
+  description: Authentication
+- name: get_retry_exec_executionid
+  operationId: get_retry_exec_executionid
+  method: GET
+  path: /retry/exec/{executionid}
+  description: Retrieve the execution status
+- name: post_retry_retryid
+  operationId: post_retry_retryid
+  method: POST
+  path: /retry/{retryid}
+  description: Resend events batch
+- name: post_simulation_sca_proof
+  operationId: post_simulation_scaProof
+  method: POST
+  path: /simulation/scaProof
+  description: Simulating SCA proof
+- name: post_v1_beneficiaries
+  operationId: post_v1_beneficiaries
+  method: POST
+  path: /v1/beneficiaries
+  description: POST /v1/beneficiaries example
+- name: get_v1_cardimages
+  operationId: get_v1_cardimages
+  method: GET
+  path: /v1/cardimages
+  description: GET /v1/cardimages example
+- name: post_v1_cards_cardid
+  operationId: post_v1_cards_cardid
+  method: POST
+  path: /v1/cards/{cardid}
+  description: Create a Virtual Card
+- name: put_v1_cards_cardid_id
+  operationId: put_v1_cards_cardid_id
+  method: PUT
+  path: /v1/cards/{cardid}/{id}
+  description: Convert a Virtual Card to a Physical Card
+- name: put_v1_cards_id_activate
+  operationId: put_v1_cards_id_Activate
+  method: PUT
+  path: /v1/cards/{id}/Activate
+  description: PUT /v1/cards/{id}/Activate example
+- name: put_v1_users_userid
+  operationId: put_v1_users_userid
+  method: PUT
+  path: /v1/users/{userid}
+  description: PUT /v1/users/{userId} example
+- name: get_wallets
+  operationId: get_wallets
+  method: GET
+  path: /wallets
+  description: Authentication

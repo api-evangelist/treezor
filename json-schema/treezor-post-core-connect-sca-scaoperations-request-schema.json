@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/treezor/main/json-schema/treezor-post-core-connect-sca-scaoperations-request-schema.json",
+  "title": "PostCoreConnectScaScaoperationsRequest",
+  "x-generated": "2026-10-14",
+  "x-method": "derived",
+  "x-generator": "derive-json-schema.py",
+  "x-source": "openapi/_ae-authored/treezor-openapi-generated.yml#/components/schemas/PostCoreConnectScaScaoperationsRequest",
+  "type": "object",
+  "properties": {
+    "dataToSign": {
+      "type": "object",
+      "description": "The expected data to be signed for the desired endpoint and action."
+    },
+    "actionName": {
+      "type": "string",
+      "description": "Must be one of the allowed actions."
+    },
+    "actionDescription": {
+      "type": "string",
+      "description": "Describes the action to help the User understand what they are validating."
+    },
+    "userId": {
+      "type": "string",
+      "description": "The User id that must sign the operation."
+    }
+  },
+  "required": [
+    "dataToSign",
+    "actionName",
+    "actionDescription",
+    "userId"
+  ]
+}
