@@ -96,21 +96,22 @@ common:
 
 apis:
 - name: Treezor API
-  description: Treezor API provides banking-as-a-service endpoints for accounts, virtual IBANs, cards, payments and compliance.
+  description: >-
+    Treezor API provides banking-as-a-service endpoints for accounts, virtual IBANs, cards, payments and
+    compliance.
   humanURL: https://docs.treezor.com/api-reference/api-endpoints.html
   baseURL: https://api.treezor.com
   aid: treezor:treezor-api-2
-- aid: treezor:treezor-api
-  name: Treezor API
-  description: 'Treezor API as documented publicly: 26 operations. Contract generated from the documentation by API Evangelist (2026-10-14); not
-
-    the provider''s own document.'
-  humanURL: https://docs.treezor.com/api-reference/postman.html
-  baseURL: https://your.csv.link
+- aid: treezor:treezor-beneficiaries-api
+  name: Treezor Beneficiaries API
+  description: The Beneficiaries API from Treezor — 2 operation(s) for beneficiaries.
+  humanURL: https://docs.treezor.com/api-reference/api-endpoints.html
+  baseURL: https://api.treezor.com
+  tags:
+  - Beneficiaries
   properties:
   - type: OpenAPI
-    url: openapi/_ae-authored/treezor-openapi-generated.yml
-    x-provenance: generated
+    url: openapi/treezor-beneficiaries-api-openapi.yml
   - type: JSONSchema
     url: json-schema/treezor-get-response-schema.json
   - type: JSONSchema
@@ -123,7 +124,270 @@ apis:
     url: json-schema/treezor-post-core-connect-sca-scaoperations-request-schema.json
   - type: JSONSchema
     url: json-schema/treezor-post-cards-request-schema.json
-
+- aid: treezor:treezor-cardimages-api
+  name: Treezor Cardimages API
+  description: The Cardimages API from Treezor — 1 operation(s) for cardimages.
+  humanURL: https://docs.treezor.com/api-reference/api-endpoints.html
+  baseURL: https://api.treezor.com
+  tags:
+  - Cardimages
+  properties:
+  - type: OpenAPI
+    url: openapi/treezor-cardimages-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/treezor-get-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-get-core-connect-sca-scawallets-scawalletid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-card-bulk-request-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-sca-scaoperations-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-sca-scaoperations-request-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-cards-request-schema.json
+- aid: treezor:treezor-cards-api
+  name: Treezor Cards API
+  description: The Cards API from Treezor — 5 operation(s) for cards.
+  humanURL: https://docs.treezor.com/api-reference/api-endpoints.html
+  baseURL: https://api.treezor.com
+  tags:
+  - Cards
+  properties:
+  - type: OpenAPI
+    url: openapi/treezor-cards-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/treezor-get-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-get-core-connect-sca-scawallets-scawalletid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-card-bulk-request-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-sca-scaoperations-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-sca-scaoperations-request-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-cards-request-schema.json
+- aid: treezor:treezor-core-connect-api
+  name: Treezor Core Connect API
+  description: The Core Connect API from Treezor — 5 operation(s) for core connect.
+  humanURL: https://docs.treezor.com/api-reference/api-endpoints.html
+  baseURL: https://api.treezor.com
+  tags:
+  - Core Connect
+  properties:
+  - type: OpenAPI
+    url: openapi/treezor-core-connect-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/treezor-get-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-get-core-connect-sca-scawallets-scawalletid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-card-bulk-request-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-sca-scaoperations-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-sca-scaoperations-request-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-cards-request-schema.json
+- aid: treezor:treezor-customization-api
+  name: Treezor Customization API
+  description: The Customization API from Treezor — 1 operation(s) for customization.
+  humanURL: https://docs.treezor.com/api-reference/api-endpoints.html
+  baseURL: https://api.treezor.com
+  tags:
+  - Customization
+  properties:
+  - type: OpenAPI
+    url: openapi/treezor-customization-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/treezor-get-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-get-core-connect-sca-scawallets-scawalletid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-card-bulk-request-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-sca-scaoperations-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-sca-scaoperations-request-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-cards-request-schema.json
+- aid: treezor:treezor-default-api
+  name: Treezor [...] API
+  description: The [...] API from Treezor — 1 operation(s) for [...].
+  humanURL: https://docs.treezor.com/api-reference/api-endpoints.html
+  baseURL: https://api.treezor.com
+  tags:
+  - '[...]'
+  properties:
+  - type: OpenAPI
+    url: openapi/treezor-default-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/treezor-get-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-get-core-connect-sca-scawallets-scawalletid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-card-bulk-request-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-sca-scaoperations-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-sca-scaoperations-request-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-cards-request-schema.json
+- aid: treezor:treezor-documents-api
+  name: Treezor Documents API
+  description: The Documents API from Treezor — 1 operation(s) for documents.
+  humanURL: https://docs.treezor.com/api-reference/api-endpoints.html
+  baseURL: https://api.treezor.com
+  tags:
+  - Documents
+  properties:
+  - type: OpenAPI
+    url: openapi/treezor-documents-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/treezor-get-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-get-core-connect-sca-scawallets-scawalletid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-card-bulk-request-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-sca-scaoperations-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-sca-scaoperations-request-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-cards-request-schema.json
+- aid: treezor:treezor-oauth-api
+  name: Treezor OAuth API
+  description: The Oauth API from Treezor — 1 operation(s) for oauth.
+  humanURL: https://docs.treezor.com/api-reference/api-endpoints.html
+  baseURL: https://api.treezor.com
+  tags:
+  - Oauth
+  properties:
+  - type: OpenAPI
+    url: openapi/treezor-oauth-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/treezor-get-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-get-core-connect-sca-scawallets-scawalletid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-card-bulk-request-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-sca-scaoperations-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-sca-scaoperations-request-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-cards-request-schema.json
+- aid: treezor:treezor-retry-api
+  name: Treezor Retry API
+  description: The Retry API from Treezor — 2 operation(s) for retry.
+  humanURL: https://docs.treezor.com/api-reference/api-endpoints.html
+  baseURL: https://api.treezor.com
+  tags:
+  - Retry
+  properties:
+  - type: OpenAPI
+    url: openapi/treezor-retry-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/treezor-get-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-get-core-connect-sca-scawallets-scawalletid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-card-bulk-request-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-sca-scaoperations-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-sca-scaoperations-request-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-cards-request-schema.json
+- aid: treezor:treezor-simulation-api
+  name: Treezor Simulation API
+  description: The Simulation API from Treezor — 1 operation(s) for simulation.
+  humanURL: https://docs.treezor.com/api-reference/api-endpoints.html
+  baseURL: https://api.treezor.com
+  tags:
+  - Simulation
+  properties:
+  - type: OpenAPI
+    url: openapi/treezor-simulation-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/treezor-get-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-get-core-connect-sca-scawallets-scawalletid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-card-bulk-request-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-sca-scaoperations-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-sca-scaoperations-request-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-cards-request-schema.json
+- aid: treezor:treezor-treezor-api-api
+  name: Treezor Treezor API
+  description: The Treezor API API from Treezor — 1 operation(s) for treezor api.
+  humanURL: https://docs.treezor.com/api-reference/api-endpoints.html
+  baseURL: https://api.treezor.com
+  tags:
+  - Treezor API
+  properties:
+  - type: OpenAPI
+    url: openapi/treezor-treezor-api-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/treezor-get-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-get-core-connect-sca-scawallets-scawalletid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-card-bulk-request-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-sca-scaoperations-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-sca-scaoperations-request-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-cards-request-schema.json
+- aid: treezor:treezor-users-api
+  name: Treezor Users API
+  description: The Users API from Treezor — 1 operation(s) for users.
+  humanURL: https://docs.treezor.com/api-reference/api-endpoints.html
+  baseURL: https://api.treezor.com
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/treezor-users-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/treezor-get-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-get-core-connect-sca-scawallets-scawalletid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-card-bulk-request-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-sca-scaoperations-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-sca-scaoperations-request-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-cards-request-schema.json
+- aid: treezor:treezor-wallets-api
+  name: Treezor Wallets API
+  description: The Wallets API from Treezor — 1 operation(s) for wallets.
+  humanURL: https://docs.treezor.com/api-reference/api-endpoints.html
+  baseURL: https://api.treezor.com
+  tags:
+  - Wallets
+  properties:
+  - type: OpenAPI
+    url: openapi/treezor-wallets-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/treezor-get-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-get-core-connect-sca-scawallets-scawalletid-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-card-bulk-request-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-sca-scaoperations-response-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-core-connect-sca-scaoperations-request-schema.json
+  - type: JSONSchema
+    url: json-schema/treezor-post-cards-request-schema.json
 x-coverage:
   state: unreadable
   reason: js-rendered-docs

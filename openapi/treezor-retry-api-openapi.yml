@@ -1,0 +1,122 @@
+openapi: 3.2.0
+info:
+  title: Treezor Retry API
+  version: '2026-10-14'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-14: 26 operation(s) read from 9 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; Treezor has published no machine-readable contract that the pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 3
+    documentation: 23
+    pages-with-code: 4
+    pages-read: 9
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-14'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://docs.treezor.com/api-reference/postman.html
+  - https://docs.treezor.com/guide/strong-customer-authentication/securing-endpoints.html
+  - https://docs.treezor.com/guide/webhooks/retry.html
+  - https://docs.treezor.com/guide/api-basics/templates.html
+  - https://docs.treezor.com/guide/api-basics/authentication.html
+  - https://docs.treezor.com/guide/strong-customer-authentication/enrolled-devices.html
+  - https://docs.treezor.com/guide/strong-customer-authentication/cross-device.html
+  - https://docs.treezor.com/guide/strong-customer-authentication/faking-operations.html
+  - https://docs.treezor.com/guide/cards/creation.html
+servers:
+- url: https://your.csv.link
+security:
+- bearer: []
+tags:
+- name: Retry
+paths:
+  /retry/exec/{executionid}:
+    get:
+      operationId: get_retry_exec_executionid
+      tags:
+      - Retry
+      summary: Retrieve the execution status
+      x-source: https://docs.treezor.com/guide/webhooks/retry.html
+      parameters:
+      - name: executionid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetRetryExecExecutionidResponse'
+      x-evidence:
+        kind: documentation
+  /retry/{retryid}:
+    post:
+      operationId: post_retry_retryid
+      tags:
+      - Retry
+      summary: Resend events batch
+      x-source: https://docs.treezor.com/guide/webhooks/retry.html
+      parameters:
+      - name: retryid
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostRetryRetryidRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostRetryRetryidResponse'
+      x-evidence:
+        kind: documentation
+        collapsed_from: 2 example path(s) differing only at retryId
+components:
+  schemas:
+    PostRetryRetryidRequest:
+      type: object
+      properties:
+        queryId:
+          type: string
+          description: The unique identifier of the query obtained in the first step.
+        delay:
+          type: integer
+          description: The time between each webhook retry attempts in seconds, max 3600.
+      required:
+      - queryId
+    GetRetryExecExecutionidResponse:
+      type: object
+      properties:
+        executionId:
+          type: string
+          description: Identifier of the execution batch.
+        status:
+          type: string
+          description: Status valued to either IN_PROGRESS or DONE.
+        lastEventAt:
+          type: string
+          description: Timestamp of the last event processed.
+    PostRetryRetryidResponse:
+      type: object
+      properties:
+        executionId:
+          type: string
+          description: Identifier of the execution batch.
+        status:
+          type: string
+          description: Current status of the execution (e.g., IN_PROGRESS).
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer

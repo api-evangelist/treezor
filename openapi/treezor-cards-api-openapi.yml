@@ -1,0 +1,244 @@
+openapi: 3.2.0
+info:
+  title: Treezor Cards API
+  version: '2026-10-14'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-14: 26 operation(s) read from 9 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; Treezor has published no machine-readable contract that the pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 3
+    documentation: 23
+    pages-with-code: 4
+    pages-read: 9
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-14'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://docs.treezor.com/api-reference/postman.html
+  - https://docs.treezor.com/guide/strong-customer-authentication/securing-endpoints.html
+  - https://docs.treezor.com/guide/webhooks/retry.html
+  - https://docs.treezor.com/guide/api-basics/templates.html
+  - https://docs.treezor.com/guide/api-basics/authentication.html
+  - https://docs.treezor.com/guide/strong-customer-authentication/enrolled-devices.html
+  - https://docs.treezor.com/guide/strong-customer-authentication/cross-device.html
+  - https://docs.treezor.com/guide/strong-customer-authentication/faking-operations.html
+  - https://docs.treezor.com/guide/cards/creation.html
+servers:
+- url: https://your.csv.link
+security:
+- bearer: []
+tags:
+- name: Cards
+paths:
+  /cards:
+    post:
+      operationId: post_cards
+      tags:
+      - Cards
+      summary: Create a Card (PCI‑DSS endpoint)
+      x-source: https://docs.treezor.com/guide/cards/creation.html
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostCardsRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostCardsResponse'
+      x-evidence:
+        kind: documentation
+  /cards/{cardid}/cardImage:
+    get:
+      operationId: get_cards_cardid_cardImage
+      tags:
+      - Cards
+      summary: Retrieve a Card Image (PCI‑DSS endpoint)
+      x-source: https://docs.treezor.com/guide/cards/creation.html
+      parameters:
+      - name: cardid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCardsCardidCardimageResponse'
+      x-evidence:
+        kind: documentation
+  /v1/cards/{cardid}:
+    post:
+      operationId: post_v1_cards_cardid
+      tags:
+      - Cards
+      summary: Create a Virtual Card
+      x-source: https://docs.treezor.com/guide/cards/creation.html
+      parameters:
+      - name: cardid
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostV1CardsCardidRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostV1CardsCardidResponse'
+      x-evidence:
+        kind: documentation
+        collapsed_from: 2 example path(s) differing only at cardId
+  /v1/cards/{cardid}/{id}:
+    put:
+      operationId: put_v1_cards_cardid_id
+      tags:
+      - Cards
+      summary: Convert a Virtual Card to a Physical Card
+      x-source: https://docs.treezor.com/guide/cards/creation.html
+      parameters:
+      - name: cardid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PutV1CardsCardidIdResponse'
+      x-evidence:
+        kind: documentation
+        collapsed_from: 3 example path(s) differing only at id
+  /v1/cards/{id}/Activate:
+    put:
+      operationId: put_v1_cards_id_Activate
+      tags:
+      - Cards
+      summary: PUT /v1/cards/{id}/Activate example
+      x-source: https://docs.treezor.com/guide/strong-customer-authentication/securing-endpoints.html
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: accessTag
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+components:
+  schemas:
+    PostV1CardsCardidResponse:
+      type: object
+      properties:
+        cards:
+          type: array
+          description: Array of created card objects
+    PutV1CardsCardidIdResponse:
+      type: object
+      properties:
+        cards:
+          type: array
+          description: Array of updated card objects with virtualConverted = 1
+    PostV1CardsCardidRequest:
+      type: object
+      properties:
+        cardPrint:
+          type: string
+        userId:
+          type: string
+        walletId:
+          type: string
+        permsGroup:
+          type: string
+        mccRestrictionGroupId:
+          type: string
+        merchantRestrictionGroupId:
+          type: string
+        countryRestrictionGroupId:
+          type: string
+        limitPaymentDaily:
+          type: string
+        limitAtmDaily:
+          type: string
+      required:
+      - cardPrint
+      - userId
+      - walletId
+      - permsGroup
+    PostCardsResponse:
+      type: object
+      properties:
+        cards:
+          type: array
+          description: Array of created card objects
+    PostCardsRequest:
+      type: object
+      properties:
+        cardPrint:
+          type: string
+        userId:
+          type: string
+        medium:
+          type: string
+        walletId:
+          type: string
+        permsGroup:
+          type: string
+        mccRestrictionGroupId:
+          type: string
+        merchantRestrictionGroupId:
+          type: string
+        countryRestrictionGroupId:
+          type: string
+        limitPaymentDaily:
+          type: string
+        limitAtmDaily:
+          type: string
+        sca:
+          type: string
+      required:
+      - cardPrint
+      - userId
+      - medium
+      - walletId
+      - permsGroup
+    GetCardsCardidCardimageResponse:
+      type: object
+      properties:
+        encryptedCardImage:
+          type: string
+          description: Base64‑encoded encrypted card image
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer

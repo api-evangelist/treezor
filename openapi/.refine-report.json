@@ -1,0 +1,40 @@
+{
+  "provider": "treezor",
+  "sources": [
+    "_ae-authored/treezor-openapi-generated.yml"
+  ],
+  "outputs": [
+    "treezor-beneficiaries-api-openapi.yml",
+    "treezor-cardimages-api-openapi.yml",
+    "treezor-cards-api-openapi.yml",
+    "treezor-core-connect-api-openapi.yml",
+    "treezor-customization-api-openapi.yml",
+    "treezor-documents-api-openapi.yml",
+    "treezor-oauth-api-openapi.yml",
+    "treezor-retry-api-openapi.yml",
+    "treezor-simulation-api-openapi.yml",
+    "treezor-treezor-api-api-openapi.yml",
+    "treezor-users-api-openapi.yml",
+    "treezor-wallets-api-openapi.yml",
+    "treezor-default-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "3 archived document(s) dropped as subsets of other archived documents",
+    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "treezor-openapi-generated.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "treezor-openapi-generated.yml: tagged paths GET / -> Treezor API",
+    "treezor-openapi-generated.yml: tagged paths POST / -> Treezor API",
+    "treezor-openapi-generated.yml: tagged paths POST /[...] -> [...]",
+    "treezor-openapi-generated.yml: declared missing tag: Treezor API",
+    "treezor-openapi-generated.yml: declared missing tag: [...]",
+    "apis.yml register: written (+13 apis, 14 total)"
+  ],
+  "skipped": [
+    "_ae-authored/treezor-core-openapi-generated.yml: archived document superseded by a larger archived document",
+    "_ae-authored/treezor-cards-openapi-generated.yml: archived document superseded by a larger archived document",
+    "_ae-authored/treezor-api-basics-openapi-generated.yml: archived document superseded by a larger archived document"
+  ]
+}

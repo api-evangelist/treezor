@@ -1,0 +1,76 @@
+openapi: 3.2.0
+info:
+  title: Treezor [...] API
+  version: '2026-10-14'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-14: 26 operation(s) read from 9 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; Treezor has published no machine-readable contract that the pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 3
+    documentation: 23
+    pages-with-code: 4
+    pages-read: 9
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-14'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://docs.treezor.com/api-reference/postman.html
+  - https://docs.treezor.com/guide/strong-customer-authentication/securing-endpoints.html
+  - https://docs.treezor.com/guide/webhooks/retry.html
+  - https://docs.treezor.com/guide/api-basics/templates.html
+  - https://docs.treezor.com/guide/api-basics/authentication.html
+  - https://docs.treezor.com/guide/strong-customer-authentication/enrolled-devices.html
+  - https://docs.treezor.com/guide/strong-customer-authentication/cross-device.html
+  - https://docs.treezor.com/guide/strong-customer-authentication/faking-operations.html
+  - https://docs.treezor.com/guide/cards/creation.html
+servers:
+- url: https://your.csv.link
+security:
+- bearer: []
+tags:
+- name: '[...]'
+paths:
+  /[...]:
+    post:
+      operationId: post
+      tags:
+      - '[...]'
+      summary: POST /[...]
+      x-source: https://docs.treezor.com/guide/cards/creation.html
+      parameters:
+      - name: X-Amz-Expires
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '201':
+          description: Success (shape read from the example response on the page)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostResponse2'
+      x-evidence:
+        kind: code-example
+        language: curl
+        snippet: "curl bash curl -X POST '{baseUrl}/core-connect/card/user/bulk/validate'  --header 'Authorization: Bearer {accessToken}'  --header 'Content-Type: multipart/form-data'  --form 'file=@/path/to/your/file.csv' 1 2 3 4 Returns the validation result with a link to download the enriched CSV file containing an errors column. JSON json { \n \"fileStatus\" : \"PARTIAL_OK\" , \n \"totalLines\" : 10 , \n \"validLines\" :"
+components:
+  schemas:
+    PostResponse2:
+      type: object
+      properties:
+        fileStatus:
+          type: string
+        totalLines:
+          type: integer
+        validLines:
+          type: integer
+        invalidLines:
+          type: integer
+        reportLink:
+          type: string
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer

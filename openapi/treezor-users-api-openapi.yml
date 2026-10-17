@@ -1,0 +1,75 @@
+openapi: 3.2.0
+info:
+  title: Treezor Users API
+  version: '2026-10-14'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-14: 26 operation(s) read from 9 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; Treezor has published no machine-readable contract that the pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 3
+    documentation: 23
+    pages-with-code: 4
+    pages-read: 9
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-14'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://docs.treezor.com/api-reference/postman.html
+  - https://docs.treezor.com/guide/strong-customer-authentication/securing-endpoints.html
+  - https://docs.treezor.com/guide/webhooks/retry.html
+  - https://docs.treezor.com/guide/api-basics/templates.html
+  - https://docs.treezor.com/guide/api-basics/authentication.html
+  - https://docs.treezor.com/guide/strong-customer-authentication/enrolled-devices.html
+  - https://docs.treezor.com/guide/strong-customer-authentication/cross-device.html
+  - https://docs.treezor.com/guide/strong-customer-authentication/faking-operations.html
+  - https://docs.treezor.com/guide/cards/creation.html
+servers:
+- url: https://your.csv.link
+security:
+- bearer: []
+tags:
+- name: Users
+paths:
+  /v1/users/{userid}:
+    put:
+      operationId: put_v1_users_userid
+      tags:
+      - Users
+      summary: PUT /v1/users/{userId} example
+      x-source: https://docs.treezor.com/guide/strong-customer-authentication/securing-endpoints.html
+      parameters:
+      - name: userid
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: accessTag
+        in: query
+        required: false
+        schema:
+          type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PutV1UsersUseridRequest'
+      responses:
+        '200':
+          description: Success (status as documented)
+      x-evidence:
+        kind: documentation
+components:
+  schemas:
+    PutV1UsersUseridRequest:
+      type: object
+      properties:
+        phone:
+          type: string
+        middleNames:
+          type: string
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer

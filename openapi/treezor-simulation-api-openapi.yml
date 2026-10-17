@@ -1,0 +1,96 @@
+openapi: 3.2.0
+info:
+  title: Treezor Simulation API
+  version: '2026-10-14'
+  description: 'GENERATED FROM DOCUMENTATION by API Evangelist on 2026-10-14: 26 operation(s) read from 9 public documentation page(s) (each operation names its page in x-source). This is not the provider''s published contract; Treezor has published no machine-readable contract that the pipeline could find. Engine: local.'
+  x-evidence-tiers:
+    code-example: 3
+    documentation: 23
+    pages-with-code: 4
+    pages-read: 9
+  x-generated-from: documentation
+  x-provenance: generated
+  x-authored-by: API Evangelist
+  x-generated: '2026-10-14'
+  x-generator: generate-contract-from-docs.py
+  x-engine: local
+  x-sources:
+  - https://docs.treezor.com/api-reference/postman.html
+  - https://docs.treezor.com/guide/strong-customer-authentication/securing-endpoints.html
+  - https://docs.treezor.com/guide/webhooks/retry.html
+  - https://docs.treezor.com/guide/api-basics/templates.html
+  - https://docs.treezor.com/guide/api-basics/authentication.html
+  - https://docs.treezor.com/guide/strong-customer-authentication/enrolled-devices.html
+  - https://docs.treezor.com/guide/strong-customer-authentication/cross-device.html
+  - https://docs.treezor.com/guide/strong-customer-authentication/faking-operations.html
+  - https://docs.treezor.com/guide/cards/creation.html
+servers:
+- url: https://your.csv.link
+security:
+- bearer: []
+tags:
+- name: Simulation
+paths:
+  /simulation/scaProof:
+    post:
+      operationId: post_simulation_scaProof
+      tags:
+      - Simulation
+      summary: Simulating SCA proof
+      x-source: https://docs.treezor.com/guide/strong-customer-authentication/faking-operations.html
+      parameters:
+      - name: scaWalletId
+        in: query
+        required: true
+        schema:
+          type: string
+        description: The unique identifier of the SCA Wallet from which the scaProof is to be created.
+      - name: url
+        in: query
+        required: false
+        schema:
+          type: string
+        description: The URL of the endpoint for which the sensitive action is to be secured with strong customer authentication.
+      - name: body
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Data to sign in the SCA proof body.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostSimulationScaproofRequest'
+      responses:
+        '201':
+          description: Success (status as documented)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PostSimulationScaproofResponse'
+      x-evidence:
+        kind: documentation
+components:
+  schemas:
+    PostSimulationScaproofRequest:
+      type: object
+      properties:
+        scaWalletId:
+          type: string
+        url:
+          type: string
+        body:
+          type: object
+      required:
+      - scaWalletId
+    PostSimulationScaproofResponse:
+      type: object
+      properties:
+        scaProof:
+          type: string
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
